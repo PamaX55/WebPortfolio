@@ -1,34 +1,51 @@
 <script setup lang="ts">
 
+import { ref } from 'vue';
 import NavBar from './components/NavBar.vue';
+import Contact from './components/Contact.vue';
 
+const contactOverlay = ref(false)
+
+function showContact() {
+  contactOverlay.value = true;
+}
 </script>
 
 <template>
-  <v-app class="mt-8" >
-    <NavBar />
-    <RouterView />
-    
+  <v-app id="vapp">
+    <NavBar @showContact="showContact"/>
+
+    <v-main id="vmain">
+      <RouterView id="rtview"/>
+      
+      <v-overlay v-model="contactOverlay">
+        <Contact/>
+      </v-overlay>
+    </v-main>
   </v-app>
 </template>
 
 <style>
-
-#app{
-  width: 75%;
-  background-color: rgb(150 222 241);
+#app {
+  padding: 0;
+  min-width: 100%;
+  background-color: #B7B7B7;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#vmain {
+  background-color: #705C53;/*#EDDFE0;*/
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+#rtview {
+  margin-top: 4rem;
+  /* background-color: #EDDFE0; */
+  /* background-color: #705C53; */
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.v-overlay {
+  justify-content: center;
+  align-items: center;
 }
+
+/* https://colorhunt.co/palette/eddfe0f5f5f7b7b7b7705c53 */
 </style>

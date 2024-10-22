@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-// import { Ref } from 'vue';
+// import { ref } from 'vue';
 
 function downloadPdf (){
   let elmnt = document.createElement('a');
@@ -19,22 +19,52 @@ function startDownload(){
 
 <template>
   <!-- <v-app id="landing"> -->
-    <div>
-      <h2>Im Edgar</h2>
-      <p>Developer with 3 years experience</p>
-    </div>
+    <v-container class="landingbody" variant="tonal">
+      <v-row class="landingcontent" justify="center">
+        <v-card class="lb-resume">
+          <v-card-text>Hi, I'm </v-card-text>
+          <v-card-title id="lb-name">EDGAR ROSALES</v-card-title>
+          <v-card-subtitle id="lb-subname">A SOFTWARE DEVELOPER</v-card-subtitle>
+          <v-card-text>Software engineer who has worked mainly developing web apps and desktop software</v-card-text>
+          <v-card-text>You can see in this site my experience in more detail and contact info</v-card-text>
+        </v-card >
 
-    <p>Download my CV</p>
-    <a href="src\assets\Cv EdgarRosales.pdf" download="Cv EdgarRosales">
-      <v-btn @click="startDownload">Download PDF</v-btn>
-    </a>
+        <v-card>
+          <v-card-text>You can download my CV clicking this button</v-card-text>
+          
+          <a href="src\assets\Cv EdgarRosales.pdf" download="Cv EdgarRosales">
+            <v-btn @click="startDownload">Download PDF</v-btn>
+          </a>
+        </v-card>  
+      </v-row>
+    </v-container>
+    
     
   <!-- </v-app> -->
 </template>
 
 <style scoped>
-#landing{
-  min-height: 100vh;
-  background-color: rgb(150 222 241);
+.landingcontent{
+  justify-content: space-between;
+}
+
+.landingcontent div{
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.lb-resume {
+  background-color: #F5F5F7;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#lb-name {
+  font-size: 3em;
+}
+
+#lb-subname {
+  font-size: 4em;
 }
 </style>

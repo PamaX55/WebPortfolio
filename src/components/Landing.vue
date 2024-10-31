@@ -19,31 +19,37 @@ function startDownload(){
 
 <template>
   <!-- <v-app id="landing"> -->
-    <v-container class="landingbody" variant="tonal">
-      <v-row class="landingcontent" justify="center">
-        <v-card class="lb-resume">
-          <v-card-text>Hi, I'm </v-card-text>
-          <v-card-title id="lb-name">EDGAR ROSALES</v-card-title>
-          <v-card-subtitle id="lb-subname">A SOFTWARE DEVELOPER</v-card-subtitle>
-          <v-card-text>Software engineer who has worked mainly developing web apps and desktop software</v-card-text>
-          <v-card-text>You can see in this site my experience in more detail and contact info</v-card-text>
+    <!-- <v-container class="landingbody" variant="tonal"> -->
+      <!-- <v-row class="landingcontent"> -->
+        <v-card class="lb-resume" variant="text" style="position: fixed;">
+          <v-card-title id="lb-name">Edgar Rosales</v-card-title>
+          <v-card-title id="lb-subname">Software Developer</v-card-title>
+          <v-card-text class="lb-text">Software engineer who has worked mainly <br> developing web apps and desktop software</v-card-text>
+        
+          <v-card class="download-cv" style="display: flex; flex-direction: row;">
+            <v-card-text class="lb-text">Download CV</v-card-text>
+            
+            <a href="src\assets\Cv EdgarRosales.pdf" download="Cv EdgarRosales">
+              <v-card-actions @click="startDownload">Download PDF</v-card-actions>
+            </a>
+          </v-card>
+          
+          <v-btn @click="$emit('ShowContact')" >Contact</v-btn>
         </v-card >
 
-        <v-card>
-          <v-card-text>You can download my CV clicking this button</v-card-text>
-          
-          <a href="src\assets\Cv EdgarRosales.pdf" download="Cv EdgarRosales">
-            <v-btn @click="startDownload">Download PDF</v-btn>
-          </a>
-        </v-card>  
-      </v-row>
-    </v-container>
-    
-    
+      <!-- </v-row> -->
+    <!-- </v-container> -->    
   <!-- </v-app> -->
 </template>
 
 <style scoped>
+.landingbody {
+  color: #ccd6f6;
+  /* margin-top: 6em; */
+  /* margin-bottom: 6em; */
+  /* position: fixed; */
+}
+
 .landingcontent{
   justify-content: space-between;
 }
@@ -54,17 +60,36 @@ function startDownload(){
 }
 
 .lb-resume {
-  background-color: #F5F5F7;
+  /* background-color: #F5F5F7; */
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
+.download-cv {
+  background-color:  rgba(255, 255, 255, .1);
+  min-width: 100%;
+  margin-top: 2rem;
+}
+
 #lb-name {
-  font-size: 3em;
+  font-size: 3.5em;
+  font-weight: bold;
+  color: #ccd6f6;;
 }
 
 #lb-subname {
-  font-size: 4em;
+  font-size: 2em;
+  font-weight: bold;
+  color: rgba(204, 214, 246);
+}
+
+.lb-resume #text {
+  font-size: 2em;
+}
+
+.lb-text {
+  color: aliceblue;
 }
 </style>

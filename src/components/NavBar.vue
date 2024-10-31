@@ -10,10 +10,6 @@ import { RouterLink } from 'vue-router';
 
 <template>
     <v-app-bar class="navbar">
-      <v-app-bar-title id="nbtitle">
-        <h4>Edgar Rosales</h4>
-        <!-- <v-icon icon="mdi-code-tags" /> -->
-      </v-app-bar-title>
       <v-divider vertical></v-divider>
 
       <RouterLink to="/" class="h-100">
@@ -35,7 +31,7 @@ import { RouterLink } from 'vue-router';
 
 <style scoped>
 .navbar {
-  background-color: #EDDFE0 !important;
+  background-color: #705C53 !important;
   /* background-color: #F5F5F7 !important; */
   /* background-color: rgb(150 222 241) !important; */
 }

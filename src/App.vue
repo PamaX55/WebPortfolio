@@ -22,10 +22,10 @@ function showContact() {
       <!-- <RouterView id="rtview"/> -->
       <v-container>
         <v-row style="padding-top: 3rem;">
-          <v-col cols="5">
+          <v-col cols="12" lg="5">
             <Landing @showContact="showContact"/>
           </v-col>
-          <v-col cols="7" style="padding-left: 4rem;">
+          <v-col cols="12" lg="7">
             <Resume/>
             <Work/>
             <Education/>
@@ -58,7 +58,8 @@ function showContact() {
 <style>
 :root {
   /* Background color when scrolling and page stretch a border */
-  background-color: #493830;
+  background-color: #283c32;
+  background-color: #3b4d44;
 }
 
 #app {
@@ -68,7 +69,9 @@ function showContact() {
 }
 
 #vmain {
-  background-color: #2A1A0f;/*#EDDFE0;*/
+  background-color: #283c32;/*#2A1A0f;*//*#EDDFE0;*/
+  /* background: rgb(255,255,255); */
+background: linear-gradient(to bottom, rgba(255,255,255,1) -1000%, rgba(40,60,50,1) 100%);
 }
 
 #rtview {
@@ -86,5 +89,6 @@ function showContact() {
   margin-bottom: 5rem;
 }
 
-/* https://colorhunt.co/palette/eddfe0f5f5f7b7b7b7705c53 */
+/* brown https://colorhunt.co/palette/eddfe0f5f5f7b7b7b7705c53 */
+/* green https://coolors.co/palette/dad7cd-a3b18a-588157-3a5a40-344e41 */
 </style>

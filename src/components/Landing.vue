@@ -1,7 +1,10 @@
 <script setup lang="ts">
 
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useDisplay } from 'vuetify';
+
+  let snackbar = ref(false);
+  const sbTimeout = 2000;
 
 function downloadPdf (){
   let elmnt = document.createElement('a');
@@ -32,6 +35,7 @@ const resumePosition = computed(() => {
 
 function CopyToClipboard(){
   navigator.clipboard.writeText("rosales.edgare@gmail.com");
+  snackbar.value = true;
 }
 
 </script>
@@ -55,6 +59,9 @@ function CopyToClipboard(){
           <v-icon icon="mdi-mail" size="x-large"></v-icon>
           <p class="btn-social-text">E-mail</p>
         </v-btn>
+        <v-snackbar v-model="snackbar" :timeout="sbTimeout">
+          <p>E-mail copied to clipboard</p> 
+        </v-snackbar>
 
         <v-btn class="btn-social" variant="plain" href="https://github.com/PamaX55" target="_blank">
           <v-icon icon="mdi-github" size="x-large"></v-icon>
@@ -69,23 +76,12 @@ function CopyToClipboard(){
         </v-card-actions>
       </v-card>
     </a>
-
-    <!-- <v-card class="contact-actn">
-      <a>
-        <v-card-actions @click="$emit('ShowContact')">Contact
-        <v-icon icon="mdi-mail"></v-icon>
-        </v-card-actions>
-      </a>
-    </v-card> -->
   </v-card >
 </template>
 
 <style scoped>
 .landingbody {
   color: #ccd6f6;
-  /* margin-top: 6em; */
-  /* margin-bottom: 6em; */
-  /* position: fixed; */
 }
 
 .landingcontent{

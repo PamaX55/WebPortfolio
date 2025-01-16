@@ -16,7 +16,17 @@ function downloadPdf (){
 }
 
 function startDownload(){
-  downloadPdf()
+  // downloadPdf()
+  viewPdf()
+}
+
+function viewPdf(){
+  let elmnt = document.createElement('a');
+  elmnt.setAttribute('href', 'https://drive.google.com/file/d/1j1KxIwER2afcOpe5nGzv-58qFJ5u5WEA/view?usp=sharing')
+  elmnt.setAttribute('target', '_blank')
+  document.body.appendChild(elmnt) 
+  elmnt.click()
+  document.body.removeChild(elmnt)
 }
 
 const {name} = useDisplay()
@@ -45,7 +55,7 @@ function CopyToClipboard(){
     <v-card-title id="lb-name">Edgar Rosales</v-card-title>
     <v-card-title id="lb-subname">Software Developer</v-card-title>
     <v-card-text class="lb-text">
-      <p>Working in IT for 3 years, i've worked with
+      <p>Working in IT for 3 years, I've worked with
         desktop software and web apps, mainly focused on coding</p>
     </v-card-text>        
     
@@ -69,9 +79,9 @@ function CopyToClipboard(){
         </v-btn>
     </div>
 
-    <a href="src\assets\Cv EdgarRosales.pdf" download="Cv EdgarRosales" style="width: 100%;">
-      <v-card class="download-cv" style="display: flex; flex-direction: row; justify-content: center;">
-        <v-card-actions @click="startDownload" style="color: #ccd6f6;">
+    <a style="width: 100%;">
+      <v-card @click="startDownload" class="download-cv" style="display: flex; flex-direction: row; justify-content: center;">
+        <v-card-actions style="color: #ccd6f6;">
           <v-icon icon="mdi-download"></v-icon>Download CV
         </v-card-actions>
       </v-card>
@@ -107,6 +117,11 @@ function CopyToClipboard(){
   background-color:  rgba(255, 255, 255, .1);
   min-width: 100%;
   margin-top: 2rem;
+  cursor: pointer;
+}
+
+.download-cv:hover {
+  background-color:  rgba(255, 255, 255, .15);
 }
 
 .contact-actn {

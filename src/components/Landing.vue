@@ -6,15 +6,6 @@ import { useDisplay } from 'vuetify';
   let snackbar = ref(false);
   const sbTimeout = 2000;
 
-function downloadPdf (){
-  let elmnt = document.createElement('a');
-  elmnt.setAttribute('href', 'data:application/pdf;charset=utf-8, '+encodeURIComponent('src\assets\Cv EdgarRosales.pdf'))
-  elmnt.setAttribute('download', 'Cv EdgarRosales')
-  document.body.appendChild(elmnt) 
-  elmnt.click()
-  document.body.removeChild(elmnt)
-}
-
 function startDownload(){
   // downloadPdf()
   viewPdf()
